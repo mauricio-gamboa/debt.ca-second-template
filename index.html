@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Debt">
+<head>
+  <title>Debt.ca Landing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="public/styles/libs.css">
+  <link rel="stylesheet" href="public/styles/styles.css">
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h1 class="logo"><a href="">Debt.ca</a></h1>
+          <span class="hide-xs"><i class="fa fa-lock"></i> Safe, Confidential &amp; No Obligation</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="get-started">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="miscellaneous">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+          <h2>Settle Your Debts Pick A Plan That Works</h2>
+          <p>Whether you have a too much debt or you are simply looking for options, we can help you resolve your debt for less money than you owe now. Find out if you qualify and see how much you can save!</p>
+          <div class="video-wrapper clearfix hide-xs">
+            <a href=""><img src="public/images/video.png" alt=""></a>
+            <h4>Play Video</h4>
+            <p>See How Debt.ca works</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+          <h2>Debt Relief for Canadians</h2>
+          <ul class="list-unstyled green-list">
+            <li>Reduce Up To 60% Of Your Debt</li>
+            <li>One Low Monthly Payment</li>
+            <li>Debt Free in as little as 24 - 48 Months</li>
+            <li>Alternative to Bankruptcy</li>
+          </ul>
+          <div class="video-wrapper clearfix show-xs">
+            <a href=""><img src="public/images/video.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div id="how-it-works">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>How It Works</h2>
+          <img class="hide-xs" src="public/images/how-it-works.png" alt="">
+        </div>
+      </div>
+      <div class="row hide-xs">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="step step-1">
+            <h3>Calculate youR debts</h3>
+            <p>Examine your current situation at no charge or obligation. Get your free online savings quote today!</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="step step-2">
+            <h3>REDUCE YOUR DEBT</h3>
+            <p>Reduce up to 60% of your debt and combine all of your payments into one affordable monthly payment.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="step step-3">
+            <h3>BECOME DEBT FREE</h3>
+            <p>Making lower monthly payments will allow you to get out of debt in as little as 24 - 48 months.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row show-xs">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="steps">
+            <div class="owl-carousel" owl-single>
+              <div class="step">
+                <img src="public/images/step-1.png" alt="">
+                <h3>Calculate youR debts</h3>
+                <p>Examine your current situation at no charge or obligation. Get your free online savings quote today!</p>
+              </div>
+              <div class="step">
+                <img src="public/images/step-2.png" alt="">
+                <h3>REDUCE YOUR DEBT</h3>
+                <p>Reduce up to 60% of your debt and combine all of your payments into one affordable monthly payment.</p>
+              </div>
+              <div class="step">
+                <img src="public/images/step-3.png" alt="">
+                <h3>BECOME DEBT FREE</h3>
+                <p>Making lower monthly payments will allow you to get out of debt in as little as 24 - 48 months.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <section id="tabs" ng-controller="TabsCtrl">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-4">
+          <div class="tabs-xs clearfix show-xs">
+            {{currentTab}}
+            <span class="collapsed pull-right" data-toggle="collapse" data-target="#tabs-menu"><i class="fa fa-bars"></i></span>
+          </div>
+          <ul id="tabs-menu" class="list-unstyled tabs-menu collapse" role="tablist">
+            <li role="presentation" ng-repeat="tab in tabs" ng-class="{active:$first}">
+              <a ng-click="changeTitle($index)" href="#tab-{{$index + 1}}" aria-controls="tab-{{$index + 1}}" role="tab" data-toggle="tab">{{tab}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-8">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab-1">
+              <h4>Avoid Bankruptcy and Get Out of Debt the Easy Way with a Consumer Proposal</h4>
+              <p>At Debt.ca, we understand that people might find themselves surrounded with debt for many reasons including job loss, reduced income, medical expenses, or even the rising costs of raising a family. And when faced with a mountain of consumer debt, it is quite easy to become overwhelmed and to believe that you will never be able to pay off your creditors. The high interest rates associated with consumer debts, late fees for those who are behind on their payments, and much more can seem to conspire against your attempts to become debt free. That is why we want to help all Canadians better understand their debt relief options and save the most money while they get out from under their unsecured loans.</p>
+              <p>Are you struggling with debt or trying to figure out which Canadian debt relief program will help you get out of debt in the quickest amount of time and for the least amount of money? If so, let us show you that you can live a life free of bills and you do have more options than you probably realize. Simply put, if your paying out more money every month than you have coming in, we can get you to a professional who can help. Fill out the form above to get started today!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab-2">2</div>
+            <div role="tabpanel" class="tab-pane" id="tab-3">3</div>
+            <div role="tabpanel" class="tab-pane" id="tab-4">4</div>
+            <div role="tabpanel" class="tab-pane" id="tab-5">5</div>
+            <div role="tabpanel" class="tab-pane" id="tab-6">6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="sep"></div>
+  <section id="miscellaneous-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-12">
+          <span>See if you qualify,</span> <a href="#get-started-form" du-smooth-scroll class="my-btn btn-2">Fill out the form</a> <span>to get started!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="sep"></div>
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-2 col-2">
+          <div class="footer-section">
+            <h1 class="logo logo-gray"><a href="">Debt.ca</a></h1>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-2">
+          <address class="footer-section">
+            <p>500 Cochrane Dr.</p>
+            <p>Markham Ontario</p>
+            <p>L3R 8E2</p>
+            <p>Ph; 1-877-0488</p>
+          </address>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-8 col-8">
+          <div class="footer-section">
+            <p>Disclaimers: This website is not intended to, nor does it, provide legal advice, nor is it intended to be a substitute for legal advice. If you need legal advice you must consult with a licensed attorney. Services are available to Canadian residents only and may not be available in all provinces. Please read and understand contract terms & conditions prior to enrollment. If you have any questions regarding this advertisement, please email <a href="mailto:support@debt.ca">support@debt.ca</a>.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-12">
+          <div id="footer-bottom" class="clearfix">
+            <div>&copy; Copyright 2012 ConsumerDebtHelp.ca. All Rights Reserved.</div>
+            <div><a href="">Privacy Policy</a> | <a href="">Terms and Conditions</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="public/js/libs.min.js"></script>
+  <script src="public/js/app.min.js"></script>
+</body>
+</html>
