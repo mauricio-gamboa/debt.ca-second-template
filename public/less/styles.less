@@ -433,11 +433,7 @@ Get Started Styles
 }
 
 #get-started {
-  background: url("../images/landscape.jpg") no-repeat 50% 50% fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: url("../images/landscape.jpg") no-repeat scroll 50% 50% / cover  rgba(0, 0, 0, 0);
   height: 630px;
   position: relative;
 
@@ -447,6 +443,7 @@ Get Started Styles
 }
 
 #get-started-form {
+  background: url("../images/g-3.png") repeat-x 0 0 @white-2;
   box-shadow: 0 0 20px -5px #000;
   position: relative;
   z-index: 10;
@@ -457,7 +454,7 @@ Get Started Styles
   }
 
   h4 {
-    background-color: @red-2;
+    height: 110px;
     color: #FFFFFF;
     font-size: 32px;
     margin: 0;
@@ -466,12 +463,8 @@ Get Started Styles
     text-transform: uppercase;
     padding: 15px 0;
 
-    @media @medium {
-      font-size: 28px;
-    }
-
     @media @xs {
-      font-size: 22px;
+      font-size: 27px;
     }
 
     i {
@@ -482,7 +475,6 @@ Get Started Styles
   }
 
   .step-form {
-    background-color: @white-2;
     text-align: center;
     padding: 25px 40px;
     height: 400px;
@@ -770,7 +762,7 @@ Get Started Styles
         }
 
         @media @xs {
-          font-size: 12px;
+          font-size: 17px;
 
           i {
             vertical-align: middle;
@@ -1027,6 +1019,19 @@ Miscellaneous Styles
 }
 
 .video-wrapper {
+
+  .arrow {
+    background: url("../images/arrow-1.png") no-repeat 0 0;
+    display: block;
+    height: 55pc;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    position: absolute;
+    top: 50%;
+    width: 65px;
+  }
+  
   h4 {
     margin: 0;
     color: @green-1;
@@ -1040,11 +1045,14 @@ Miscellaneous Styles
     margin: 0;
   }
 
-  a {
+  button {
     box-shadow: @shadow-1;
     display: block;
     float: left;
     margin-right: 24px;
+    position: relative;
+    border: none;
+    padding: 0;
 
     @media @xs {
       float: none;
@@ -1288,8 +1296,9 @@ Footer Styles
   font-size: 11px;
   line-height: 20px;
 
-  a {
+  a, span {
     color: @gray-6;
+    cursor: pointer;
 
     &:hover {
       color: @gray-6;
@@ -1348,6 +1357,54 @@ Footer Styles
   }
 }
 
+.modal-content {
+  .close-modal {
+    background: url("../images/close.png") no-repeat 0 0;
+    width: 57px;
+    height: 57px;
+    border: none;
+    position: absolute;
+    right: -28px;
+    top: -28px;
+  }
+}
+
+.terms-privacy {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+
+  > div {
+    max-height: 900px;
+    overflow-y: scroll;
+  }
+  
+  h2 {
+    margin: 0 0 15px 0;
+    padding-bottom: 15px;
+    color: @blue-2;
+    border-bottom: 2px solid @blue-2;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+    color: #000000;
+    line-height: 18px;
+
+    span {
+      color: @blue-2;
+    }
+  }
+}
+
 /***************************
 ****************************
 Owl Carousel Styles
@@ -1400,5 +1457,25 @@ UI Slider Styles
     &.ui-state-focus {
       outline: none;
     }
+  }
+}
+
+/***************************
+****************************
+Video Wrapper Styles
+****************************
+***************************/
+.videoWrapper {
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  position: relative;
+
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
