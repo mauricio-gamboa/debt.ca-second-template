@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('Debt', ['duScroll']);
+var myApp = angular.module('Debt', ['duScroll', 'ui.slider']);
 
 myApp.controller('TabsCtrl', ['$scope', function($scope) {
   $scope.tabs = ['Canadian Debt Relief', 'How Does It Work?', 'What Types of Debt Qualify?', 'Why Choose Debt.ca?', 'Why Should I Avoid Bankruptcy?', 'How Do I Get Started?'];
@@ -13,20 +13,28 @@ myApp.controller('TabsCtrl', ['$scope', function($scope) {
 }]);
 
 myApp.controller('GetStartedCtrl', ['$scope', '$log', function($scope, $log) {
-  $scope.formData = {};
   $scope.estimateData = {};
-  $scope.showFirst = true;
+  
+  $scope.showZero = true;
+  $scope.showFirst = false;
   $scope.showSpinner = false;
   $scope.showLast = false;
-  $scope.title = 'Get Started Now';
-
   
+  $scope.min = 5000;
+  $scope.max = 200000;
+  $scope.estimateData.value = 50000;
+
+  $scope.firstStep = function() {
+    $scope.showZero = false;
+    $scope.showFirst = true;
+  };
+
   $scope.submitQualify = function (isValid) {
     if (isValid) {
+      $scope.showZero = false;
       $scope.showFirst = false;
       $scope.showSpinner = true;
       $scope.showSpinner = false;
-      $scope.title = 'you qualify for a free analysis!';
       $scope.showLast = true;
     }
   };
@@ -44,6 +52,21 @@ myApp.directive('owlSingle', [function () {
       element.owlCarousel({
         autoPlay: true,
         singleItem: true
+      });
+    }
+  };
+}]);
+
+myApp.directive('owlTestimonials', [function () {
+  return {
+    restrict: 'A',
+
+    link: function (scope, element) {
+      element.owlCarousel({
+        autoPlay: true,
+        singleItem: true,
+        navigation: true,
+        pagination: false
       });
     }
   };
