@@ -19,10 +19,316 @@
     </div>
   </header>
   <section id="get-started">
-    <div class="container">
+    <div class="white-bar"></div>
+    <div class="container show-xs">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+          <div class="help-now">
+            Get help now
+            <span>(866) 808-0811</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-offset-5 col-sm-7 col-md-offset-7 col-md-5 col-lg-offset-8 col-lg-4">
+          <div id="get-started-form" ng-controller="GetStartedCtrl">
+            <h4>Reduce Up to 60% of Your Debt</h4>
+            <div class="step-form step-form-zero" ng-show="showZero">
+              <div>
+                <h5>How much do you owe?</h5>
+                <div class="ui-slider-wrapper">
+                  <span class="val" ng-cloak>{{estimateData.value | currency:"$":0}}</span>
+                  <div ui-slider="{range: 'min'}" min="{{min}}" max="{{max}}" step="1000" ng-model="estimateData.value"></div>
+                  <div class="values clearfix">
+                    <span class="pull-left" ng-cloak>{{min | currency:"$":0}}</span>
+                    <span class="pull-right" ng-cloak>{{max | currency:"$":0}}</span>
+                  </div>
+                </div>
+                <a href="" ng-click="firstStep()" class="my-btn btn-2">Get Started <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <div class="step-form step-form-first" ng-show="showFirst">
+              <div>
+                <h5>Get Started Now</h5>
+                <div class="bubble">
+                  See If You Qualitfy <br>For Debt Assistance!
+                  <img src="public/images/spike-2.png" alt="" class="spike">
+                </div>
+                <form name="qualifyForm" ng-submit="submitQualify(qualifyForm.$valid)" class="form" role="form" novalidate>
+                  <fieldset>
+                    <label for="code">Your Postal Code</label>
+                    <input id="code" name="code" type="text" ng-model="formData.code" placeholder="Enter your postal code here" required>
+                    <button class="my-btn btn-2" type="submit">See If You Qualify! <i class="fa fa-arrow-circle-right"></i></button>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="form-bottom">
+                <i class="fa fa-lock"></i> Safe, Confidential &amp; No Obligation
+              </div>
+            </div>
+            <div class="step-form step-form-spinner" ng-show="showSpinner">
+              <h5>Space is limited!</h5>
+              <p>Checcking to see if you qualify. Please wait.</p>
+              <i class="fa fa-spinner"></i>
+              <p>Searching...</p>
+            </div>
+            <div class="step-form step-form-last" ng-show="showLast">
+              <h5>you qualify for a free analysis </h5>
+              <form name="getEstimateForm" ng-submit="getEstimate(getEstimateForm.$valid)" class="form" role="form" novalidate>
+                <fieldset class="clearfix form-section">
+                  <div>
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" name="name" ng-model="estimateData.name" required>
+                  </div>
+                  <div>
+                    <label for="last">Last Name</label>
+                    <input type="text" id="last" name="last" ng-model="estimateData.last" required>
+                  </div>
+                </fieldset>
+                <fieldset class="clearfix form-section">
+                  <div>
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" ng-model="estimateData.phone">
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" ng-model="estimateData.email" required>
+                  </div>
+                </fieldset>
+                <fieldset class="clearfix form-section">
+                  <div>
+                    <label for="province">Province</label>
+                    <div class="select-wrapper" ng-class="{error:getEstimateForm.$submitted && getEstimateForm.province.$invalid}">
+                      <select id="province" name="province" ng-model="estimateData.province" required>
+                        <option value="British Columbia">British Columbia</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label for="debt">
+                      Debt Amount 
+                      <span data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popover><i class="fa fa-question-circle"></i></span>
+                    </label>
+                    <div class="select-wrapper" ng-class="{error:getEstimateForm.$submitted && getEstimateForm.debt.$invalid}">
+                      <select id="debt" name="debt" ng-model="estimateData.debt" required>
+                        <option value="$90,000 - $99,999">$90,000 - $99,999</option>
+                      </select>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset class="cb clearfix form-section">
+                  <div class="checkbox-wrapper" ng-class="{error:getEstimateForm.$submitted && getEstimateForm.terms.$invalid}">
+                    <input type="checkbox" id="terms" name="terms" ng-model="estimateData.terms" required>
+                    <label for="terms"></label>
+                  </div>
+                  <span>I accept the terms of service and agree to receive email regarding my debt from Debt.ca &amp; our debt partners, including tips and promotions. You may unsubscribe at any time. See our <a href="">Privacy Policy</a> and <a href="">Terms</a>.</span>
+                </fieldset>
+                <button class="my-btn btn-2" type="submit">get your free estimate <i class="fa fa-arrow-circle-right"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="get-started-slider" owl-testimonials>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-1.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-2.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-3.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-4.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-5.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="person-container">
+                <img class="person" src="public/images/person-6.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="testimonial-text">
+                  <img class="pike" src="public/images/pike-1.png" alt="">
+                  <blockquote>
+                    <p>This has been the best decision of my life! The credit counsellors are quick with responses, they know their stuff and they have helped me with a kindness and consideration that I will never forget. Thanks Debt.ca</p>
+                    <p><cite>– Suz-Ann C.</cite></p>              
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="testimonial-example">
+                  <h5>You're not alone</h5>
+                  <p>Help with $15,000 in debt</p>
+                  <span>4 minutes ago in ON</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,17 +393,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="steps">
             <div class="owl-carousel" owl-single>
-              <div class="step">
+              <div class="step step-1">
                 <img src="public/images/step-1.png" alt="">
                 <h3>Calculate youR debts</h3>
                 <p>Examine your current situation at no charge or obligation. Get your free online savings quote today!</p>
               </div>
-              <div class="step">
+              <div class="step step-2">
                 <img src="public/images/step-2.png" alt="">
                 <h3>REDUCE YOUR DEBT</h3>
                 <p>Reduce up to 60% of your debt and combine all of your payments into one affordable monthly payment.</p>
               </div>
-              <div class="step">
+              <div class="step step-3">
                 <img src="public/images/step-3.png" alt="">
                 <h3>BECOME DEBT FREE</h3>
                 <p>Making lower monthly payments will allow you to get out of debt in as little as 24 - 48 months.</p>
