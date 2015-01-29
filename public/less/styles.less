@@ -798,7 +798,6 @@ Get Started Styles
 #get-started-slider {
   position: absolute;
   height: 100%;
-  width: 100%;
   top: 0;
   left: 0;
 
@@ -1358,14 +1357,24 @@ Footer Styles
 }
 
 .modal-content {
-  .close-modal {
-    background: url("../images/close.png") no-repeat 0 0;
-    width: 57px;
-    height: 57px;
-    border: none;
+  .close {  
     position: absolute;
-    right: -28px;
-    top: -28px;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    float: none;
+    z-index: 10;
+
+    @media @large, @medium, @small {
+      background: url("../images/close.png") no-repeat 0 0;
+      width: 57px;
+      height: 57px;
+      border: none;
+      right: -28px;
+      top: -28px;
+      opacity: 1;
+      text-indent: 1000px;
+    }
   }
 }
 
