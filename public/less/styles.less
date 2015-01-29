@@ -1182,7 +1182,17 @@ Tabs Styles
   line-height: 45px;
   padding: 0 29px;
   border-radius: 25px;
-  font-size: 15px;
+
+  p {
+    font-size: 15px;
+    float: left;
+    font-size: 15px;
+    margin: 0;
+    max-width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   span {
     cursor: pointer;
@@ -1239,7 +1249,7 @@ Tabs Styles
       @media @xs {
         color: #FFFFFF;
         padding: 15px;
-        font-size: 12px;
+        font-size: 13px;
         border-radius: 0;
       }
     }
